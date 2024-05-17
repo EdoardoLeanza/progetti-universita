@@ -1,9 +1,9 @@
-data date;
-datanasc="15SEP2002"D;
-oggi=TODAY();
-eta= (oggi - datanasc)/365.25;
-format datanasc oggi DATE9.;
-compl10k= datanasc+10000;
-run;
+libname corso "C:\Users\EL882380\Desktop";
 
-proc print data=date; run;
+data corso.ford2;
+	infile "Y:\My Drive\dati\ford_escort.csv"
+	firstobs = 2 dlm=',' dsd;	/* firstobs = 2 vuol dire: leggi i dati numerici solo dalla prima riga */
+								/* dlm vuol dire: carattere delimitatore ; se scrivo dlm scrivo anche dsd*/
+	input Year Mileage Price;
+run;
+	

@@ -1,25 +1,5 @@
-proc import file="Y:\My Drive\Biostatistica\Dataset-20230928\NIDDM.xlsx" 
-out=niddm dbms=xlsx replace;
+data diamonds;
+	infile "Y:\My Drive\dati\diamonds.csv" firstobs=2 dlm=',' dsd;
+	input carat cut $:99. color $ clarity $ depth table price x y z;
+	/* cut $:99. vuol dire: leggi la variabile alfanumerica cut che ha al massimo 99 caratteri*/
 run;
-
-DATA NIDDM1;
-SET NIDDM;
-BMI=WT_KG/(HT_CM/100)**2;
-RUN;
-
-PROC MEANS DATA=NIDDM1 N MEAN STD;
-VAR BMI;
-RUN;
-
-proc ttest data=niddm1 h0=28.4 sides=u;
-var bmi;
-run;
-
-
-
-
-
-
-
-
-

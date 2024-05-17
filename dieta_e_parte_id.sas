@@ -101,3 +101,17 @@ proc means data=dieta sum nway;
 	output out=no sum=numero_abbandoni;
 run;
 proc print data=no;run;
+
+
+
+
+/* PARTE EXTRA
+
+Quale squadra ha avuto il numero massimo di persone che non hanno raggiunto l'obiettivo?
+
+proc means data=no max;
+	var numero_abbandoni;
+	id squadra;
+	output out=finale maxid=quale;
+run;
+*/
