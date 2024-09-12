@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Edoardo/OneDrive/Desktop/SQL/db02librerie.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2581"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,6:mainautori"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="autori" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="101"/><column index="2" value="73"/><column index="3" value="59"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">select * from autori;
+-- chiave primaria: codice_autore --
+select * from editori;
+-- chiave primaria: codice --
+select * from formato;
+-- chiave primaria: codice --
+select * from hascritto;
+-- chiave primaria: codice_libro e codice_autore --
+select * from libri;
+-- chiave primaria: codice; chiave secondaria: codice_editore e cod_format --
+select * from negozi;
+-- chiave primaria: codice_negozio --
+select * from scorte;
+-- chiave primaria: codice_libro e codice_negozio --
+
+
+select * from libri order by codice;
+select titolo, tipo, prezzo from libri order by codice;
+select titolo, prezzo from libri where prezzo&lt;10;
+select * from libri where tipo=&quot;CS&quot;;
+select * from libri where tipo=&quot;CS&quot; or tipo =&quot;FIC&quot; order by tipo;
+select libri.titolo, editori.nome
+from libri
+join editori;
+-- nessun risultato --
+
+-- bastava fare select *
+-- from libri --
+-- join editori? --
+select titolo, nome from editori, libri where editori.codice=libri.codice_editore;
+
+select * from libri join formato;
+select titolo, prezzo, descrizione from formato, libri where formato.codice = libri.cod_format;
+
+
+select titolo, cognome from libri, autori, hascritto
+where autori.codice_autore=hascritto.codice_autore and hascritto.codice_libro=libri.codice;
+
+select titolo, cognome from libri, autori, hascritto
+where autori.codice_autore=hascritto.codice_autore and hascritto.codice_libro=libri.codice
+and cognome=&quot;Kafka&quot;;
+
+select titolo, cognome from libri, autori, hascritto
+where autori.codice_autore=hascritto.codice_autore and hascritto.codice_libro=libri.codice
+and (cognome=&quot;Kafka&quot; or cognome=&quot;Christie&quot;);
+
+select nome, sede from negozi, scorte, libri
+where negozi.codice_negozio=scorte.codice_negozio and libri.codice=scorte.codice_libro
+and libri.titolo=&quot;dBASE Programming&quot;;</sql><current_tab id="0"/></tab_sql></sqlb_project>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Edoardo/OneDrive/Desktop/SQL/db01interrogatorio.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2317"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,4:maindati"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="dati" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="73"/><column index="3" value="69"/><column index="4" value="91"/><column index="5" value="82"/><column index="6" value="66"/><column index="7" value="67"/><column index="8" value="59"/><column index="9" value="48"/><column index="10" value="95"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">select * from dati order by cognome;
+
+select * from dati where partenza= &quot;10:50:00&quot;;
+
+select * from dati where capelli= &quot;biondi&quot;;
+
+select * from dati where misurascarpe = 44;
+
+select * from dati where partenza= &quot;10:50:00&quot; and capelli= &quot;biondi&quot;;
+
+select * from dati where partenza= &quot;10:50:00&quot; and capelli= &quot;biondi&quot; and misurascarpe = 44;
+
+select * from dati where capelli = &quot;neri&quot; and partenza = &quot;08:10:00&quot;;
+
+select * from dati where capelli = &quot;neri&quot; and ritorno = &quot;19:05:00&quot;;
+
+select * from dati where capelli = &quot;biondi&quot; and cognome = &quot;AGOSTINI&quot;;
+
+select * from dati where partenza&lt;&quot;15:30:00&quot; and capelli=&quot;castani&quot; and data= &quot;2001-07-07&quot;;
+
+select * from dati where capelli = &quot;castani&quot; and data= &quot;2001-07-07&quot; and misurascarpe = 40;
+
+select * from dati where partenza=&quot;09:30:00&quot; and data=&quot;2001-07-07&quot; and
+(capelli=&quot;rossi&quot; or capelli=&quot;castani&quot;) and misurascarpe &gt;= 36 and
+ritorno=&quot;19:30:00&quot;;</sql><current_tab id="0"/></tab_sql></sqlb_project>
