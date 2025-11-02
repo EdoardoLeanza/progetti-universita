@@ -1,0 +1,11 @@
+data work.rewards;
+	Reserve=1000000;
+	do year=1 to 30 until (Reserve>2000000 or year>30);
+		do month=1 to 12;
+			Reserve = Reserve + Reserve * 0.04/12;
+		end;
+		output;
+	end;
+	format Reserve comma20.;
+    drop Month;
+run;

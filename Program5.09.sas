@@ -1,0 +1,13 @@
+data work.rewards;
+	year=1;
+	reserve=1e6;
+	do until(Reserve>1.5e6);
+		do month = 1 to 12;
+			Reserve=Reserve + 5000;
+			Reserve = Reserve + (Reserve * .04 / 12);
+		end;
+		output;
+		year+1;
+	end;
+	format reserve comma20.;
+run;

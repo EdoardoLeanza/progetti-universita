@@ -1,0 +1,22 @@
+data sales;
+	set cr.employee;
+	where Department="Sales" and TermDate is missing;
+	Country=upcase(Country);
+	length SalesLevel $ 6;
+	if JobTitle="Sales Rep. I" then do;
+		SalesLevel="Entry";
+		output;
+	end;
+	else if JobTitle="Sales Rep. II" or JobTitle="Sales Rep. III" then do;
+		SalesLevel="Middle";
+		output;
+	end;
+	else if JobTitle="Sales Rep. IV" then do;
+		SalesLevel="Senior";
+		output;
+	end;
+run;
+
+proc freq data=sales;
+	table SalesLevel;
+run;
