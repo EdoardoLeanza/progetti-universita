@@ -1,9 +1,10 @@
-libname corso "C:\Users\EL882380\Desktop";
-
-data corso.ford2;
-	infile "Y:\My Drive\dati\ford_escort.csv"
-	firstobs = 2 dlm=',' dsd;	/* firstobs = 2 vuol dire: leggi i dati numerici solo dalla prima riga */
-								/* dlm vuol dire: carattere delimitatore ; se scrivo dlm scrivo anche dsd*/
-	input Year Mileage Price;
+proc contents data="/home/u63815003/EPG1V2/data/storm_summary.sas7bdat";
 run;
-	
+
+/* usando le librerie diventa: */
+libname mylib base "/home/u63815003/EPG1V2/data/storm_summary.sas7bdat";
+
+proc contents data=mylib;
+run;
+
+libname mylib clear;
